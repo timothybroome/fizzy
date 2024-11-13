@@ -12,7 +12,7 @@ class Filter < ApplicationRecord
     end
 
     def digest_params(params)
-      Digest::MD5.hexdigest params.to_json
+      Digest::MD5.hexdigest params.sort.to_json
     end
   end
 
