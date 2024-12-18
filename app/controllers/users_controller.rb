@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  require_unauthenticated_access
+  require_unauthenticated_access only: %i[ new create ]
 
-  before_action :set_account_from_join_code
+  before_action :set_user, only: :show
+  before_action :set_account_from_join_code, only: %i[ new create ]
 
   def new
     @user = @account.users.build
@@ -13,9 +14,16 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+  end
+
   private
     def set_account_from_join_code
       @account = Account.find_by_join_code!(params[:join_code])
+    end
+
+    def set_user
+      @user = Current.account.users.active.find(params[:id])
     end
 
     def user_params

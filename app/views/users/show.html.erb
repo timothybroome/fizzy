@@ -1,0 +1,35 @@
+<% @page_title = @user.name %>
+
+<% content_for :header do %>
+  <nav>
+    <%= link_to account_users_path, class: "btn flex-item-justify-start" do %>
+      <%= image_tag "arrow-left.svg", aria: { hidden: true }, size: 24 %>
+      <span class="for-screen-reader">Back</span>
+    <% end %>
+  </nav>
+<% end %>
+
+<div class="panel shadow center txt-align-center">
+  <div class="flex flex-column gap">
+    <div class="avatar txt-xx-large center fill-white">
+      <%= image_tag user_avatar_path(@user), alt: "Profile avatar for #{@user.name}", class: "avatar", size: 128 %>
+    </div>
+    <% if !@user.active? %>
+      <div class="flex flex-column gap-half">
+        <h1 class="txt-x-large txt-tight-lines margin-none"><%= @user.name %></h1>
+        <div class="txt-medium"><%= mail_to @user.email_address %></div>
+      </div>
+
+      <% if Current.user == @user %>
+        <hr class="margin-block-start borderless">
+
+        <%#= render "users/profiles/transfer", user: @user %>
+      <% end %>
+    <% else %>
+      <div class="flex flex-column gap-half margin-block-end">
+        <h1 class="txt-x-large margin-none"><%= @user.name %></h1>
+        <div class="txt-medium"><%= @user.name %> is no longer on this account</div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   <%= avatar_tag user, loading: :lazy, class: "flex-item-no-shrink" %>
 
   <strong class="overflow-ellipsis">
-    <%= user.name %>
+    <%= link_to user.name, user_path(user) %>
   </strong>
 
   <hr class="separator--horizontal flex-item-grow" style="--border-color: var(--color-subtle-dark); --border-style: dashed" aria-hidden="true">
