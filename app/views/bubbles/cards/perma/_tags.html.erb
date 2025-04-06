@@ -4,7 +4,7 @@
       <span># </span>
       <% bubble.tags.each_with_index do |tag, index| %>
         <%= link_to bubbles_path(bucket_ids: [ bubble.bucket ], tag_ids: [ tag.id ]),
-          class: "card__tag btn btn--plain min-width txt-uppercase fill-transparent", data: { turbo_frame: "_top" } do %>
+              class: "card__tag btn btn--plain min-width txt-uppercase fill-transparent" do %>
           <span class="overflow-ellipsis"><%= tag.title %></span>
         <% end %><%= ", " unless index == bubble.tags.size - 1 %>
       <% end %>
