@@ -7,20 +7,19 @@
       <figure class="reaction__avatar margin-none flex-item-no-shrink">
         <%= avatar_tag Current.user %>
       </figure>
+
       <%= form.text_field :content, name: "reaction[content]", autofocus: true, autocomplete: "off", autocorrect: "off", maxlength: 16,
             required: true, pattern: /\S+.*/, class: "input reaction__input txt-small",
             aria: { label: "Add a reaction" } %>
     </label>
 
     <%= form.button class: "btn btn--reversed", type: "submit" do %>
-      <%= icon_tag "check" %>
-      <span class="for-screen-reader">Submit</span>
+      <%= icon_tag "check" %> <span class="for-screen-reader">Submit</span>
     <% end %>
 
     <%= link_to card_comment_reactions_path(@comment.card, @comment), role: "button",
           data: { turbo_frame: dom_id(@comment, :reactions), form_target: "cancel" }, class: "btn btn--negative" do %>
-      <%= icon_tag "minus" %>
-      <span class="for-screen-reader">Cancel</span>
+      <%= icon_tag "minus" %> <span class="for-screen-reader">Cancel</span>
     <% end %>
   <% end %>
 <% end %>
