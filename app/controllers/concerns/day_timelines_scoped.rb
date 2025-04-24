@@ -10,12 +10,8 @@ module DayTimelinesScoped
 
   private
     def restore_collections_filter
-      clear_collections_filter if clear_collections_filter?
+      clear_collections_filter if params[:clear_filter]
       @filter.collection_ids = cookies[:collection_filter].split(",") if cookies[:collection_filter].present?
-    end
-
-    def clear_collections_filter?
-      params[:clear_filter]
     end
 
     def clear_collections_filter
