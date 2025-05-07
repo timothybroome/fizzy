@@ -22,8 +22,8 @@ export default class extends Controller {
   }
 
   hideHelpMenu() {
-    if (this.#isHelpMenuOpened && this.#hasShowHelpMenuCommand) {
-      this.#reset()
+    if (this.#isHelpMenuOpened) {
+      if (this.#hasShowHelpMenuCommand) { this.#reset() }
       this.element.classList.remove(this.helpClass)
     }
   }
