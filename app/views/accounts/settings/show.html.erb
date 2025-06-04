@@ -8,7 +8,10 @@
       <h1 class="txt-large margin-none"><%= @page_title %></h1>
     </header>
 
-    <div class="btn btn--placeholder flex-item-justify-end"></div>
+    <%= link_to workflows_path, class: "btn flex-item-justify-end" do %>
+      <%= icon_tag "bolt" %>
+      <span class="for-screen-reader">Workflows</span>
+    <% end %>
   </nav>
 <% end %>
 
