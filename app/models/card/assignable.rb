@@ -18,6 +18,10 @@ module Card::Assignable
     assignments.exists? assignee: user
   end
 
+  def assigned?
+    assignments.any?
+  end
+
   private
     def assign(user)
       assignments.create! assignee: user, assigner: Current.user

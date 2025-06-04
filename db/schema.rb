@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_06_04_080022) do
+ActiveRecord::Schema[8.1].define(version: 2025_06_04_120033) do
   create_table "accesses", force: :cascade do |t|
     t.integer "collection_id", null: false
     t.datetime "created_at", null: false
@@ -91,6 +91,13 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_04_080022) do
     t.datetime "updated_at", null: false
     t.index ["assignee_id", "card_id"], name: "index_assignments_on_assignee_id_and_card_id", unique: true
     t.index ["card_id"], name: "index_assignments_on_card_id"
+  end
+
+  create_table "card_activity_spikes", force: :cascade do |t|
+    t.integer "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_activity_spikes_on_card_id"
   end
 
   create_table "card_engagements", force: :cascade do |t|
@@ -349,6 +356,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_04_080022) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "card_activity_spikes", "cards"
   add_foreign_key "card_goldnesses", "cards"
   add_foreign_key "cards", "workflow_stages", column: "stage_id"
   add_foreign_key "closures", "cards"

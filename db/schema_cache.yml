@@ -344,6 +344,11 @@ columns:
   - *5
   - *6
   - *9
+  card_activity_spikes:
+  - *22
+  - *5
+  - *6
+  - *9
   card_engagements:
   - !ruby/object:ActiveRecord::ConnectionAdapters::SQLite3::Column
     auto_increment:
@@ -1021,6 +1026,7 @@ primary_keys:
   assignees_filters:
   assigners_filters:
   assignments: id
+  card_activity_spikes: id
   card_engagements: id
   card_goldnesses: id
   cards: id
@@ -1060,6 +1066,7 @@ data_sources:
   assignees_filters: true
   assigners_filters: true
   assignments: true
+  card_activity_spikes: true
   card_engagements: true
   card_goldnesses: true
   cards: true
@@ -1334,6 +1341,23 @@ indexes:
   - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
     table: assignments
     name: index_assignments_on_card_id
+    unique: false
+    columns:
+    - card_id
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where:
+    type:
+    using:
+    include:
+    nulls_not_distinct:
+    comment:
+    valid: true
+  card_activity_spikes:
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: card_activity_spikes
+    name: index_card_activity_spikes_on_card_id
     unique: false
     columns:
     - card_id
@@ -2211,4 +2235,4 @@ indexes:
     comment:
     valid: true
   workflows: []
-version: 20250604080022
+version: 20250604120033
