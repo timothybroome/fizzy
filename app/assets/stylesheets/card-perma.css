@@ -79,6 +79,10 @@
 
     #main:has(.card-perma__notch--top) & {
       margin-block-end: 4ch;
+
+      @media (max-width: 639px) {
+        margin-block-end: 2ch;
+      }
     }
   }
 
