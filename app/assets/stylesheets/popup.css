@@ -51,7 +51,6 @@
     background: transparent;
     border-radius: 0.3em;
     max-inline-size: 100%;
-    padding-inline: var(--inline-space);
 
     .btn {
       --btn-background: transparent;
@@ -79,7 +78,7 @@
     --btn-border-radius: 0.3em;
     --btn-border-size: 0;
     --btn-font-weight: 500;
-    --btn-padding: var(--inline-space-half) 0 var(--inline-space-half) var(--inline-space);
+    --btn-padding: var(--inline-space-half) var(--inline-space);
 
     flex: 1 1 auto;
     justify-content: start;
