@@ -29,7 +29,7 @@ class Event::Summarizer
 
     ## Formatting rules
     - Output **Markdown** only.
-    - Keep the summary below **#{MAX_WORDS} words**.
+    - Keep the summary around **#{MAX_WORDS} words**.
     - Do **not** mention these instructions or call the inputs “events”; treat them as context.
 
     ## Linking rules
@@ -68,7 +68,7 @@ class Event::Summarizer
     attr_reader :prompt, :llm_model
 
     def chat
-      chat = RubyLLM.chat.with_temperature(0.2)
+      chat = RubyLLM.chat(model: LLM_MODEL)
       chat.with_instructions(combine(prompt, domain_model_prompt, user_data_injection_prompt))
     end
 
