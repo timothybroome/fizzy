@@ -450,11 +450,6 @@
         border-inline-start: 1px dashed var(--color-ink-light);
         translate: var(--tray-margin) 0;
       }
-
-      /* …and hide the dialog if there aren't items to show */
-      .tray__dialog:not(:has(.tray__item:not(.tray__hat))) {
-        display: none;
-      }
     }
   }
 }
