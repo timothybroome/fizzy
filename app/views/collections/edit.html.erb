@@ -32,12 +32,12 @@
     <% end %>
   </div>
 
-  <div class="panel shadow center flex flex-column">
+  <div class="panel shadow center flex flex-column gap">
     <%= render "collections/edit/workflows", collection: @collection %>
     <%= render "collections/edit/auto_close", collection: @collection %>
     <%= render "collections/edit/publication", collection: @collection %>
 
-    <hr class="separator--horizontal full-width margin-block-end margin-block-start-double" style="--border-color: var(--color-ink-light);" aria-hidden="true" />
+    <hr class="separator--horizontal full-width" style="--border-color: var(--color-ink-light);" aria-hidden="true" />
 
     <%= render "collections/edit/delete", collection: @collection %>
   </div>

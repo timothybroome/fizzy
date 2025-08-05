@@ -1,6 +1,9 @@
 <%= turbo_frame_tag @collection, :workflows do %>
-  <strong class="txt-large">Workflows</strong>
-  <div class="flex justify-center margin-block-end">Use a Workflow to track progress in this Collection.</div>
+  <header>
+    <h2 class="divider txt-large">Workflows</h2>
+    <div>Use a Workflow to track progress in this Collection</div>
+  </header>
+
   <div class="flex flex-wrap gap justify-center">
     <% Workflow.all.each do |workflow| %>
       <div class="workflow-preview txt-align-start border-radius <%= 'workflow-preview--selected' if workflow == collection.workflow %>">
@@ -19,5 +22,5 @@
       </div>
     <% end %>
   </div>
-  <p class="margin-block-end-double"><%= link_to "Manage workflows", workflows_path, class: "btn btn--plain txt-link", data: { turbo_frame: "_top" } %></p>
+  <%= link_to "Manage workflows", workflows_path, class: "btn btn--plain txt-link", data: { turbo_frame: "_top" } %>
 <% end %>

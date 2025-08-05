@@ -1,6 +1,4 @@
 <%= turbo_frame_tag @collection, :entropy_configuration do %>
-  <div class="margin-block-end">
-    <strong class="divider txt-large">Do or Die</strong>
-    <%= render "entropy/auto_close", model: collection, url: collection_entropy_configuration_path(collection) %>
-  </div>
+  <h2 class="divider txt-large">Do or Die</h2>
+  <%= render "entropy/auto_close", model: collection, url: collection_entropy_configuration_path(collection) %>
 <% end %>
