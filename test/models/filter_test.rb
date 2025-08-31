@@ -18,7 +18,7 @@ class FilterTest < ActiveSupport::TestCase
     assert_equal [ cards(:layout) ], filter.cards
 
     filter = users(:david).filters.new stage_ids: [ workflow_stages(:qa_on_hold).id ]
-    assert_equal [ cards(:logo), @new_card ], filter.cards
+    assert_equal [ cards(:logo), cards(:layout), @new_card, cards(:text) ], filter.cards
 
     filter = users(:david).filters.new assignment_status: "unassigned", collection_ids: [ @new_collection.id ]
     assert_equal [ @new_card ], filter.cards

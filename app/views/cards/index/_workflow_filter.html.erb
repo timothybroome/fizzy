@@ -13,11 +13,11 @@
     <strong class="popup__title margin-block-start-half pad-inline-half">In stage(s)…</strong>
     <%= form_with url: cards_path, method: :get, class: "popup__list",
           data: { controller: "form" } do |form| %>
-      <% filter.as_params.except(:stage_ids).each do |key, value| %>
+      <% filter.as_params.except(:stage_ids, :engagement_status).each do |key, value| %>
         <%= filter_hidden_field_tag key, value %>
       <% end %>
 
-      <%= link_to cards_path(filter.as_params.except(:stage_ids)), class: "popup__item btn" do %>
+      <%= link_to cards_path(filter.as_params.except(:stage_ids, :engagement_status)), class: "popup__item btn" do %>
         <span class="overflow-ellipsis">All stages</span>
       <% end %>
 

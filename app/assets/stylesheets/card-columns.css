@@ -23,10 +23,13 @@
   .card-columns {
     margin: auto;
     max-inline-size: 100%;
-    min-block-size: 20lh;
     padding-inline: var(--reserved-bubble-space);
     position: relative;
     transition: 300ms ease-in-out;
+
+    &:has(.cards) {
+      min-block-size: 20lh;
+    }
 
     &:before {
       background: var(--gradient-border);
