@@ -423,6 +423,8 @@
 
     .card__footer {
       margin-block: -0.2em 2em;
+
+      .icon { display: none; }
     }
 
     .card__meta {
