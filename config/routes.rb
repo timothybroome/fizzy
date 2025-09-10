@@ -51,6 +51,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # Redirect old card URLs from /collections/:collection_id/cards/:id to /cards/:id
+  get "/collections/:collection_id/cards/:id", to: redirect { |params, request| "#{request.script_name}/cards/#{params[:id]}" }
+
   namespace :notifications do
     resource :settings
     resource :unsubscribe
