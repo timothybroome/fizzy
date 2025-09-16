@@ -11,7 +11,7 @@ export default class extends Controller {
   toggle(event) {
     const section = event.target
     if (section.hasAttribute("data-temp-expand")) return
-    
+
     const key = this.#localStorageKey(section)
     section.open
       ? localStorage.removeItem(key)
@@ -20,10 +20,10 @@ export default class extends Controller {
 
   showWhileFiltering() {
     if (this.inputTarget.value) {
-      for (const section of this.sectionTargets) {
+      this.sectionTargets.forEach(section => {
         section.setAttribute("data-temp-expand", true)
         section.open = true
-      }
+      })
     } else {
       this.#restoreToggles()
     }
