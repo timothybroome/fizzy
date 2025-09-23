@@ -135,7 +135,7 @@
 
     .cards__expander-button {
       --btn-border-radius: 2em;
-      --btn-padding: 1em 0.5em;
+      --btn-padding: 0;
       --focus-ring-size: 0;
 
       font-size: var(--text-x-small);
@@ -151,8 +151,6 @@
 
       .cards:not(.is-collapsed) & {
         --btn-padding: 0;
-
-        font-weight: 600;
         line-height: 1;
         margin-block-start: 0.5em;
       }
@@ -174,12 +172,13 @@
     }
 
     .progress {
-      --max-height: 360px;
+      --max-height: 480px;
 
       background-color: var(--column-color);
-      border-radius: 2em;
+      border-radius: 0 0 2em 2em;
+      font-size: var(--text-x-small);
       inline-size: var(--collapsed);
-      margin-block-start: 2.5em;
+      margin-block-start: calc(var(--btn-size) / 2);
       position: absolute;
       z-index: -1;
 
