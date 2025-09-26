@@ -17,23 +17,19 @@ module Card::Postponable
   end
 
   def postpone
-    unless postponed?
-      transaction do
-        send_back_to_triage
-        reopen
-        activity_spike&.destroy
-        create_not_now!
-      end
+    transaction do
+      send_back_to_triage
+      reopen
+      activity_spike&.destroy
+      create_not_now! unless postponed?
     end
   end
 
   def resume
-    if postponed?
-      transaction do
-        reopen
-        activity_spike&.destroy
-        not_now.destroy
-      end
+    transaction do
+      reopen
+      activity_spike&.destroy
+      not_now&.destroy
     end
   end
 end

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       namespace :columns do
         resource :not_now
         resource :stream
+        resource :closed
       end
 
       resources :columns

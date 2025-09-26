@@ -1,0 +1,14 @@
+<%= turbo_frame_tag :closed_column do %>
+  <% if @page.used? %>
+    <%= render "collections/columns/list", cards: @page.records, draggable: true %>
+
+    <% unless @page.last? %>
+      <div class="full-width">
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card blank-slate blank-slate--card">
+      <p class="txt-align-center txt-normal">Drag cards here</p>
+    </div>
+  <% end %>
+<% end %>

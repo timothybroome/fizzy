@@ -31,7 +31,6 @@ module Card::Closeable
   def close(user: Current.user, reason: Closure::Reason.default)
     unless closed?
       transaction do
-        resume
         create_closure! user: user, reason: reason
         track_event :closed, creator: user
       end
@@ -41,7 +40,6 @@ module Card::Closeable
   def reopen(user: Current.user)
     if closed?
       transaction do
-        resume
         closure&.destroy
         track_event :reopened, creator: user
       end

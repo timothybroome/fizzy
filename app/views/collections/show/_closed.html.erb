@@ -1,0 +1,10 @@
+<section id="closed-cards" class="cards cards--on-deck is-collapsed" style="--card-color: var(--color-card-complete);"
+  data-collapsible-columns-target="column"
+  data-drag-and-drop-target="container"
+  data-drag-and-drop-url="<%= columns_card_drops_closure_path("__id__") %>"
+>
+
+  <%= cards_expander "Done", collection.cards.closed.count %>
+
+  <%= turbo_frame_tag :closed_column, src: collection_columns_closed_path(collection) %>
+</section>
