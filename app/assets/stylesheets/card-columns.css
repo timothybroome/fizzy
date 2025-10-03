@@ -199,12 +199,11 @@
       inline-size: 100%;
       margin-block-end: calc(-0.5 * var(--cards-gap));
       justify-content: center;
+    }
 
-      &:hover,
-      &:has(~ .cards__expander-menu:hover) {
-        background-color: var(--column-color);
-        filter: none;
-      }
+    .cards:is(.cards--considering) &:hover {
+      cursor: unset;
+      filter: none;
     }
   }
 
