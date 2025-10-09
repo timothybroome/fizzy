@@ -50,6 +50,7 @@ gum style --foreground 111 --bold "  ∘˚˳°∘°  𝒻𝒾𝓏𝓏𝓎  °∘
 echo
 
 step --no-spin "Installing Ruby" mise install --yes
+eval "$(mise hook-env)"
 
 if which pacman >/dev/null 2>&1; then
   packages=(imagemagick openslide)
