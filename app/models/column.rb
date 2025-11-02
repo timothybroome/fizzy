@@ -4,9 +4,6 @@ class Column < ApplicationRecord
   belongs_to :collection, touch: true
   has_many :cards, dependent: :nullify
 
-  validates :name, presence: true
-  validates :color, presence: true
-
   before_validation :set_default_color
   after_save_commit    -> { cards.touch_all }, if: -> { saved_change_to_name? || saved_change_to_color? }
   after_destroy_commit -> { collection.cards.touch_all }
